@@ -34,6 +34,10 @@ public class CemeterySection {
         return cemeterySection;
     }
 
+    public long getId() {
+        return id;
+    }
+
     @Override
     public int hashCode() {
         return ((Long) id).hashCode();
