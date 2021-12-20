@@ -13,12 +13,13 @@ public class GraveSiteTest {
     private static final String Date_OF_DEATH = "01/01/2021";
     private static final String STATUS = "Veteran";
     private static final String OBITUARY = "A whole bunch of words. Not Really.";
+    private static final CemeterySection CEMETERY_SECTION = null;
 
     GraveSite underTest;
 
     @BeforeEach
     public void setUp() {
-        underTest = new GraveSite(Name_OF_PERSON, DATE_OF_BIRTH, Date_OF_DEATH, STATUS, OBITUARY);
+        underTest = new GraveSite(Name_OF_PERSON, DATE_OF_BIRTH, Date_OF_DEATH, STATUS, OBITUARY, CEMETERY_SECTION);
     }
 
     @Test
