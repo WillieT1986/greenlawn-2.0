@@ -2,10 +2,11 @@ package wrthompsonjr.Greenlawn20.models;
 
 import net.minidev.json.annotate.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.HashSet;
+
+import static java.util.Arrays.asList;
 
 @Entity
 public class GraveSite {
@@ -18,6 +19,11 @@ public class GraveSite {
     @ManyToOne
     private CemeterySection cemeterySection;
 
+    @JsonIgnore
+    @ManyToMany
+    private Collection<CemeteryTag> cemeteryTags;
+
+
     private String name;
     private String dateOfBirth;
     private String dateOfDeath;
@@ -27,13 +33,18 @@ public class GraveSite {
     public GraveSite() {
     }
 
-    public GraveSite(String name, String dateOfBirth, String dateOfDeath, String status, String obituary, CemeterySection cemeterySection) {
+    public GraveSite(String name, String dateOfBirth, String dateOfDeath, String status, String obituary, CemeterySection cemeterySection, CemeteryTag... cemeteryTags) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.dateOfDeath = dateOfDeath;
         this.status = status;
         this.obituary = obituary;
         this.cemeterySection = cemeterySection;
+        this.cemeteryTags = new HashSet<>(asList(cemeteryTags));
+    }
+
+    public Collection<CemeteryTag> getCemeteryTags() {
+        return cemeteryTags;
     }
 
     public String getName() {
@@ -54,6 +65,10 @@ public class GraveSite {
 
     public String getObituary() {
         return obituary;
+    }
+
+    public long getId() {
+        return id;
     }
 
     @Override
