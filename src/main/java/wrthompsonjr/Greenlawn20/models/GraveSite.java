@@ -2,9 +2,17 @@ package wrthompsonjr.Greenlawn20.models;
 
 import net.minidev.json.annotate.JsonIgnore;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class GraveSite {
+
+    @Id
+    @GeneratedValue
+    private long id;
 
     @JsonIgnore
     @ManyToOne
@@ -15,6 +23,9 @@ public class GraveSite {
     private String dateOfDeath;
     private String status;
     private String obituary;
+
+    public GraveSite() {
+    }
 
     public GraveSite(String name, String dateOfBirth, String dateOfDeath, String status, String obituary, CemeterySection cemeterySection) {
         this.name = name;
@@ -43,5 +54,21 @@ public class GraveSite {
 
     public String getObituary() {
         return obituary;
+    }
+
+    @Override
+    public int hashCode() {
+        return ((Long) id).hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        return id == ((GraveSite) obj).id;
     }
 }
