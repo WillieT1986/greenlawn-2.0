@@ -1,7 +1,6 @@
-package wrthompsonjr.Greenlawn20.Data;
+package wrthompsonjr.Greenlawn20.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import wrthompsonjr.Greenlawn20.models.GraveSite;
 

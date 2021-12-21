@@ -1,4 +1,4 @@
-package wrthompsonjr.Greenlawn20.Data;
+package wrthompsonjr.Greenlawn20.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
