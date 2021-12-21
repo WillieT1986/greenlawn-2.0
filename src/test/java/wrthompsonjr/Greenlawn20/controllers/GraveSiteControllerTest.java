@@ -7,7 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
-import wrthompsonjr.Greenlawn20.Data.GraveSiteRepository;
+import wrthompsonjr.Greenlawn20.data.repository.GraveSiteRepository;
 import wrthompsonjr.Greenlawn20.models.GraveSite;
 
 import static org.hamcrest.Matchers.is;

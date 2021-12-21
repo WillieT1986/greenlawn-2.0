@@ -6,7 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
-import wrthompsonjr.Greenlawn20.Data.CemeteryTagRepository;
+import wrthompsonjr.Greenlawn20.data.repository.CemeteryTagRepository;
 import wrthompsonjr.Greenlawn20.models.CemeteryTag;
 
 import static org.hamcrest.MatcherAssert.assertThat;
