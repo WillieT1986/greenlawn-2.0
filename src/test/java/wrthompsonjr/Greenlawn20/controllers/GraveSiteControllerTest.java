@@ -30,12 +30,12 @@ public class GraveSiteControllerTest {
     Model model;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void shouldAddAnIndividualGraveSiteToModel() throws Exception {
+    public void shouldAddAnIndividualGraveSiteToModel() {
         long graveSiteId = 1L;
         when(graveSiteRepo.getById(graveSiteId)).thenReturn(graveSite1);
         underTest.findOneGraveSite(graveSiteId, model);
@@ -43,7 +43,7 @@ public class GraveSiteControllerTest {
     }
 
     @Test
-    public void shouldReturnAnIndividualGraveSite() throws Exception {
+    public void shouldReturnAnIndividualGraveSite() {
         String template = underTest.findOneGraveSite(1L, model);
         assertThat(template, is("GraveSite"));
     }
