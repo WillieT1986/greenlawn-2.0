@@ -23,23 +23,36 @@ public class GraveSite {
     @ManyToMany
     private Collection<CemeteryTag> cemeteryTags;
 
-
+    private String tombstoneImage;
     private String name;
+    private String state;
+    private String military_rank;
+    private String military_branch;
+    private String military_unit;
     private String dateOfBirth;
     private String dateOfDeath;
     private String status;
     private String obituary;
+    private String religion;
 
     public GraveSite() {
     }
 
-    public GraveSite(String name, String dateOfBirth, String dateOfDeath, String status, String obituary, CemeterySection cemeterySection, CemeteryTag... cemeteryTags) {
+    public GraveSite(String tombstoneImage, String name, String state, String military_rank, String military_branch,
+                     String military_unit, String dateOfBirth, String dateOfDeath, String status, String obituary,
+                     CemeterySection cemeterySection, String religion, CemeteryTag... cemeteryTags) {
+        this.tombstoneImage = tombstoneImage;
         this.name = name;
+        this.state = state;
+        this.military_rank = military_rank;
+        this.military_branch = military_branch;
+        this.military_unit = military_unit;
         this.dateOfBirth = dateOfBirth;
         this.dateOfDeath = dateOfDeath;
         this.status = status;
         this.obituary = obituary;
         this.cemeterySection = cemeterySection;
+        this.religion = religion;
         this.cemeteryTags = new HashSet<>(asList(cemeteryTags));
     }
 
@@ -47,8 +60,28 @@ public class GraveSite {
         return cemeteryTags;
     }
 
+    public String getImageOfTombStone() {
+        return tombstoneImage;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getMilitaryRank() {
+        return military_rank;
+    }
+
+    public String getMilitaryBranch() {
+        return military_branch;
+    }
+
+    public String getMilitaryUnit() {
+        return military_unit;
     }
 
     public String getDateOfBirth() {
@@ -65,6 +98,10 @@ public class GraveSite {
 
     public String getObituary() {
         return obituary;
+    }
+
+    public String getReligion() {
+        return religion;
     }
 
     public long getId() {
