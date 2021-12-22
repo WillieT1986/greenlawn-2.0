@@ -13,5 +13,4 @@ public class JpaWiringTest {
     public void shouldSuccessfullyInitializeJpa() {
 
     }
-
 }
