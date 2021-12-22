@@ -53,7 +53,6 @@ public class GraveSitePopulator implements CommandLineRunner {
         graveSiteRepo.save(new GraveSite("./images/cemetery-sections/place-holder.jpg", "", "John C Doe", "", "", "",
                 "01/15/1965", "12/15/2015", "", "No Summary At This Time...", sectionA, "Christian", tagFour));
 
-
         // 3 sample Military
         graveSiteRepo.save(new GraveSite("./images/cemetery-sections/place-holder.jpg", "Jody A Gotyou", "",
                 "Military Rank", "", "Military Unit", "1895", "1920", "Veteran", "No Summary At This Time...", sectionB,
@@ -64,7 +63,5 @@ public class GraveSitePopulator implements CommandLineRunner {
         graveSiteRepo.save(new GraveSite("./images/cemetery-sections/place-holder.jpg", "Jody C Gotyou", "",
                 "Military Rank", "", "Military Unit", "1895", "1920", "Veteran", "No Summary At This Time...", sectionB,
                 "Christian", tagOne));
-
-
     }
 }
