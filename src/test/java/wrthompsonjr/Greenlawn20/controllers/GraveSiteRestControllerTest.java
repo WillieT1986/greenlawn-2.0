@@ -109,7 +109,16 @@ public class GraveSiteRestControllerTest {
 
     @Test
     public void shouldReturnAListOfCemeteryTags() {
-        
+        when(cemeteryTagRepo.findAll()).thenReturn(Collections.singletonList(cemeteryTag));
+        Iterable<CemeteryTag> result = underTest.findCemeteryTags(model);
+        assertThat(result, contains(any(CemeteryTag.class)));
+    }
+
+    @Test
+    public void shouldGetACemeteryTagFromDatabase() {
+        when(cemeteryTagRepo.getById(183L)).thenReturn(cemeteryTag);
+        CemeteryTag result = underTest.findCemeteryTag(183L);
+        assertThat(result, is(cemeteryTag));
     }
 
 }

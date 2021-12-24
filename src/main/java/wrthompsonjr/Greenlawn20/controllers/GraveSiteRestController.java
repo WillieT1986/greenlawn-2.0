@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import wrthompsonjr.Greenlawn20.data.repository.CemeterySectionRepository;
+import wrthompsonjr.Greenlawn20.data.repository.CemeteryTagRepository;
 import wrthompsonjr.Greenlawn20.data.repository.GraveSiteRepository;
 import wrthompsonjr.Greenlawn20.models.CemeterySection;
+import wrthompsonjr.Greenlawn20.models.CemeteryTag;
 import wrthompsonjr.Greenlawn20.models.GraveSite;
 
 import javax.annotation.Resource;
@@ -26,6 +28,9 @@ public class GraveSiteRestController {
 
     @Resource
     private CemeterySectionRepository cemeterySectionRepo;
+
+    @Resource
+    private CemeteryTagRepository cemeteryTagRepo;
 
     public String findGraveSites(Model model) {
         model.addAttribute("graveSites", graveSiteRepo.findAll());
@@ -51,6 +56,18 @@ public class GraveSiteRestController {
             throw new CannotFindException("Invalid Query. Unable to Find Cemetery Section.");
         }
         return cemeterySectionRepo.getById(id);
+    }
+
+    public Iterable<CemeteryTag> findCemeteryTags(Model model) {
+        return cemeteryTagRepo.findAll();
+    }
+
+    @RequestMapping("/cemeteryTags/{id}")
+    public CemeteryTag findCemeteryTag(@PathVariable(name = "id") Long id) {
+        if (cemeteryTagRepo.getById(id) == null) {
+            throw new CannotFindException("Invalid Query. This Cemetery Tag Does Not Exist.");
+        }
+        return cemeteryTagRepo.getById(id);
     }
 
     @SuppressWarnings("serial")
