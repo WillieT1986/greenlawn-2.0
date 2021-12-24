@@ -50,8 +50,8 @@ public class GraveSiteRestControllerTest {
     @Mock
     private CemeteryTagRepository cemeteryTagRepo;
 
-//    @Mock
-//    private Collection<GraveSite> graveSites;
+    @Mock
+    private Collection<GraveSite> graveSites;
 
     @Mock
     Model model;
@@ -120,5 +120,16 @@ public class GraveSiteRestControllerTest {
         CemeteryTag result = underTest.findCemeteryTag(183L);
         assertThat(result, is(cemeteryTag));
     }
+
+    @Test
+    public void shouldReturnACollectionOfGraveSitesForAGivenCemeterySection() {
+        Long cemeterySectionId = 250L;
+        when(cemeterySectionRepo.getById(cemeterySectionId)).thenReturn(cemeterySection);
+        when(cemeterySection.getGraveSites()).thenReturn(Collections.singleton(graveSite));
+        Iterable<GraveSite> result = underTest.findGraveSiteByCemeterySectionId(cemeterySectionId);
+        assertThat(result, contains(graveSite));
+    }
+
+    
 
 }

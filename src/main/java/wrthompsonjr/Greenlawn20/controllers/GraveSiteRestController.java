@@ -37,12 +37,17 @@ public class GraveSiteRestController {
         return "graveSites";
     }
 
-    @RequestMapping("/gravesite/{id}")
+    @RequestMapping("/gravesites/{id}")
     public GraveSite findGraveSite(@PathVariable(name = "id") long id) {
         if (graveSiteRepo.getById(id) == null) {
             throw new CannotFindException("Gravesite Does Not Exist.");
         }
         return graveSiteRepo.getById(id);
+    }
+
+    @RequestMapping("/gravesite/{id}")
+    public Iterable<GraveSite> findGraveSiteByCemeterySectionId(@PathVariable(name = "id") Long id) {
+        return cemeterySectionRepo.getById(id).getGraveSites();
     }
 
     public String findCemeterySections(Model model) {
@@ -69,6 +74,8 @@ public class GraveSiteRestController {
         }
         return cemeteryTagRepo.getById(id);
     }
+
+
 
     @SuppressWarnings("serial")
     @ResponseStatus(HttpStatus.NOT_FOUND)
