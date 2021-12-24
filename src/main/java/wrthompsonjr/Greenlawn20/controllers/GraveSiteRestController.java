@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import wrthompsonjr.Greenlawn20.data.repository.CemeterySectionRepository;
 import wrthompsonjr.Greenlawn20.data.repository.GraveSiteRepository;
+import wrthompsonjr.Greenlawn20.models.CemeterySection;
 import wrthompsonjr.Greenlawn20.models.GraveSite;
 
 import javax.annotation.Resource;
@@ -42,6 +43,14 @@ public class GraveSiteRestController {
     public String findCemeterySections(Model model) {
         model.addAttribute("cemeterySections", cemeterySectionRepo.findAll());
         return "cemeterySections";
+    }
+
+    @RequestMapping("/cemeterySections/{id}")
+    public CemeterySection findCemeterySection(@PathVariable(name = "id") Long id) {
+        if (cemeterySectionRepo.getById(id) == null) {
+            throw new CannotFindException("Invalid Query. Unable to Find Cemetery Section.");
+        }
+        return cemeterySectionRepo.getById(id);
     }
 
     @SuppressWarnings("serial")

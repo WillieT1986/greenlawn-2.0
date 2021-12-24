@@ -38,8 +38,8 @@ public class GraveSiteRestControllerTest {
     @Mock
     private CemeterySection cemeterySection;
 
-//    @Mock
-//    private CemeteryTag cemeteryTag;
+    @Mock
+    private CemeteryTag cemeteryTag;
 
     @Mock
     private GraveSiteRepository graveSiteRepo;
@@ -47,8 +47,8 @@ public class GraveSiteRestControllerTest {
     @Mock
     private CemeterySectionRepository cemeterySectionRepo;
 
-//    @Mock
-//    private CemeteryTagRepository cemeteryTagRepos;
+    @Mock
+    private CemeteryTagRepository cemeteryTagRepo;
 
 //    @Mock
 //    private Collection<GraveSite> graveSites;
@@ -98,6 +98,18 @@ public class GraveSiteRestControllerTest {
         when(cemeterySectionRepo.findAll()).thenReturn(Collections.singletonList(cemeterySection));
         String result = underTest.findCemeterySections(model);
         assertTrue(result, contains(any(CemeterySection.class)) != null);
+    }
+
+    @Test
+    public void shouldGetOneCemeterySectionFromDatabase() {
+        when(cemeterySectionRepo.getById(88L)).thenReturn(cemeterySection);
+        CemeterySection result = underTest.findCemeterySection(88L);
+        assertThat(result, is(cemeterySection));
+    }
+
+    @Test
+    public void shouldReturnAListOfCemeteryTags() {
+        
     }
 
 }
