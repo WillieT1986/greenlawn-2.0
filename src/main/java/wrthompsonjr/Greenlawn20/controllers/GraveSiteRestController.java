@@ -41,6 +41,11 @@ public class GraveSiteRestController {
         return cemeterySectionRepo.findOneByCemeterySection(cemeterySection).getGraveSites();
     }
 
+    @RequestMapping("/gravesites")
+    public Iterable<GraveSite> findGraveSites() {
+        return graveSiteRepo.findAll();
+    }
+
     @RequestMapping("/gravesites/{id}")
     public GraveSite findGraveSite(@PathVariable(name = "id") long id) {
         if (graveSiteRepo.getById(id) == null) {

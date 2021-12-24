@@ -1,0 +1,59 @@
+package wrthompsonjr.Greenlawn20.controllers;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import wrthompsonjr.Greenlawn20.data.repository.CemeterySectionRepository;
+import wrthompsonjr.Greenlawn20.data.repository.CemeteryTagRepository;
+import wrthompsonjr.Greenlawn20.data.repository.GraveSiteRepository;
+import wrthompsonjr.Greenlawn20.models.GraveSite;
+
+import javax.annotation.Resource;
+
+
+import java.util.concurrent.ExecutionException;
+
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@ExtendWith(SpringExtension.class)
+@WebMvcTest(GraveSiteRestController.class)
+public class GraveSiteMvcTest {
+
+    @Resource
+    MockMvc mvc;
+
+    @MockBean
+    private GraveSiteRepository graveSiteRepo;
+
+    @MockBean
+    private CemeterySectionRepository cemeterySectionRepo;
+
+    @MockBean
+    private CemeteryTagRepository cemeteryTagRepo;
+
+    @BeforeEach
+    public void setUp() throws Exception {
+        MockitoAnnotations.openMocks(this);
+    }
+
+    @Test
+    public void ShouldRetrieveGraveSites() throws Exception {
+        mvc.perform(get("/gravesites")).andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldGetAnIndividualGraveSite() throws Exception {
+        when(graveSiteRepo.getById(18L))
+                .thenReturn(new GraveSite("", "", "Joe", "", "",
+                        "", "", "", "", "",  null, ""));
+        mvc.perform(get("/gravesites/18")).andExpect(status().isOk());
+    }
+
+}
