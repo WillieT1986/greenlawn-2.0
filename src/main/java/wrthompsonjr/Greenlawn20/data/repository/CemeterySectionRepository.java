@@ -6,5 +6,5 @@ import wrthompsonjr.Greenlawn20.models.CemeterySection;
 
 @Repository
 public interface CemeterySectionRepository extends JpaRepository<CemeterySection, Long> {
-
+    CemeterySection findOneByCemeterySection(String cemeterySection);
 }

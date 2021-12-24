@@ -37,6 +37,10 @@ public class GraveSiteRestController {
         return "graveSites";
     }
 
+    public Iterable<GraveSite> findGraveSiteByCemeterySection(String cemeterySection) {
+        return cemeterySectionRepo.findOneByCemeterySection(cemeterySection).getGraveSites();
+    }
+
     @RequestMapping("/gravesites/{id}")
     public GraveSite findGraveSite(@PathVariable(name = "id") long id) {
         if (graveSiteRepo.getById(id) == null) {
@@ -74,7 +78,6 @@ public class GraveSiteRestController {
         }
         return cemeteryTagRepo.getById(id);
     }
-
 
 
     @SuppressWarnings("serial")
