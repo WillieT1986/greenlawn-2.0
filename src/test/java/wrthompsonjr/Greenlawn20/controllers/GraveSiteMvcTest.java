@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import wrthompsonjr.Greenlawn20.data.repository.CemeterySectionRepository;
 import wrthompsonjr.Greenlawn20.data.repository.CemeteryTagRepository;
 import wrthompsonjr.Greenlawn20.data.repository.GraveSiteRepository;
+import wrthompsonjr.Greenlawn20.models.CemeterySection;
 import wrthompsonjr.Greenlawn20.models.GraveSite;
 
 import javax.annotation.Resource;
@@ -59,6 +60,20 @@ public class GraveSiteMvcTest {
         mvc.perform(get("/gravesites/35")).andExpect(status().isNotFound());
     }
 
-    
+    @Test
+    public void shouldRetrieveCemeterySections() throws Exception {
+        mvc.perform(get("/cemetery-sections")).andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldGetAnIndividualCemeterySection() throws Exception{
+        when(cemeterySectionRepo.getById(23L)).thenReturn(new CemeterySection("23B"));
+        mvc.perform(get("/cemetery-section/23")).andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldNotFindCemeterySectionId()throws Exception {
+        mvc.perform(get("/cemetery-sections/560")).andExpect(status().isNotFound());
+    }
 
 }

@@ -64,7 +64,12 @@ public class GraveSiteRestController {
         return "cemeterySections";
     }
 
-    @RequestMapping("/cemeterySections/{id}")
+    @RequestMapping("/cemetery-sections")
+    public Iterable<CemeterySection> findCemeterySections() {
+        return cemeterySectionRepo.findAll();
+    }
+
+    @RequestMapping("/cemetery-section/{id}")
     public CemeterySection findCemeterySection(@PathVariable(name = "id") Long id) {
         if (cemeterySectionRepo.getById(id) == null) {
             throw new CannotFindException("Invalid Query. Unable to Find Cemetery Section.");
@@ -76,7 +81,7 @@ public class GraveSiteRestController {
         return cemeteryTagRepo.findAll();
     }
 
-    @RequestMapping("/cemeteryTags/{id}")
+    @RequestMapping("/cemetery-tags/{id}")
     public CemeteryTag findCemeteryTag(@PathVariable(name = "id") Long id) {
         if (cemeteryTagRepo.getById(id) == null) {
             throw new CannotFindException("Invalid Query. This Cemetery Tag Does Not Exist.");
