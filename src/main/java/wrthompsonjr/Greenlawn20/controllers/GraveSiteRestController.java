@@ -81,7 +81,12 @@ public class GraveSiteRestController {
         return cemeteryTagRepo.findAll();
     }
 
-    @RequestMapping("/cemetery-tags/{id}")
+    @RequestMapping("/cemetery-tags")
+    public Iterable<CemeteryTag> findCemeteryTags() {
+        return cemeteryTagRepo.findAll();
+    }
+
+    @RequestMapping("/cemetery-tag/{id}")
     public CemeteryTag findCemeteryTag(@PathVariable(name = "id") Long id) {
         if (cemeteryTagRepo.getById(id) == null) {
             throw new CannotFindException("Invalid Query. This Cemetery Tag Does Not Exist.");

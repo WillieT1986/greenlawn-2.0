@@ -12,6 +12,7 @@ import wrthompsonjr.Greenlawn20.data.repository.CemeterySectionRepository;
 import wrthompsonjr.Greenlawn20.data.repository.CemeteryTagRepository;
 import wrthompsonjr.Greenlawn20.data.repository.GraveSiteRepository;
 import wrthompsonjr.Greenlawn20.models.CemeterySection;
+import wrthompsonjr.Greenlawn20.models.CemeteryTag;
 import wrthompsonjr.Greenlawn20.models.GraveSite;
 
 import javax.annotation.Resource;
@@ -74,6 +75,22 @@ public class GraveSiteMvcTest {
     @Test
     public void shouldNotFindCemeterySectionId()throws Exception {
         mvc.perform(get("/cemetery-sections/560")).andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void shouldRetrieveCemeteryTags() throws Exception {
+        mvc.perform(get("/cemetery-tags")).andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldGetAnIndividualCemeteryTag() throws Exception {
+        when(cemeteryTagRepo.getById(46L)).thenReturn(new CemeteryTag("Military"));
+        mvc.perform(get("/cemetery-tag/46")).andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldNotFindCemeteryTag() throws Exception {
+        mvc.perform(get("/cemetery-tag/36")).andExpect(status().isNotFound());
     }
 
 }
