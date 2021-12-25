@@ -16,8 +16,6 @@ import wrthompsonjr.Greenlawn20.models.GraveSite;
 import javax.annotation.Resource;
 
 
-import java.util.concurrent.ExecutionException;
-
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -55,5 +53,12 @@ public class GraveSiteMvcTest {
                         "", "", "", "", "",  null, ""));
         mvc.perform(get("/gravesites/18")).andExpect(status().isOk());
     }
+
+    @Test
+    public void shouldNotFindGraveSiteId() throws Exception {
+        mvc.perform(get("/gravesites/35")).andExpect(status().isNotFound());
+    }
+
+    
 
 }
