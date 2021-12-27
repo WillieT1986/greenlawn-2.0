@@ -26,11 +26,11 @@
         <p class="intro font-lato"> <strong>OR</strong> </p>
         <p class="intro font-lato">Check out the entire database of all those who are laid to rest: &nbsp;<a href="http://localhost:8080/graveSites">HERE</a></p>
 
-<!--        <section class="cards">-->
-<!--            <article class="card font-lato hover-grow" th:each="cemeterySection: ${cemeterySections}">-->
-<!--                <p><a th:href="@{/cemeterySection(id=${cemeterySection.id})}" th:text="${cemeterySection.cemeterySection}"></a></p>-->
-<!--            </article>-->
-<!--        </section>-->
+        <section class="cards">
+            <article class="card font-lato hover-grow" th:each="cemetery-section : ${cemeterySections}">
+<!--                <p><a th:href="@{/cemetery-section(id=${cemetery-section.id})}" th:text="${cemetery-section.cemetery-section}"></a></p>-->
+            </article>
+        </section>
 
         <section class="section-three">
             <img  src="./images/main/green-lawn-map.png" alt="Green Lawn Cemetery">
