@@ -1,5 +1,6 @@
 package wrthompsonjr.Greenlawn20.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
@@ -15,12 +16,15 @@ public class GraveSite {
     @GeneratedValue
     private long id;
 
-    @JsonIgnore
+
     @ManyToOne
+    @JsonIgnore
+    @JsonBackReference
     private CemeterySection cemeterySection;
 
-    @JsonIgnore
+
     @ManyToMany
+    @JsonIgnore
     private Collection<CemeteryTag> cemeteryTags;
 
     private String tombstoneImage;

@@ -1,5 +1,7 @@
 package wrthompsonjr.Greenlawn20.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ public class CemeterySection {
     private long id;
 
     @OneToMany(mappedBy = "cemeterySection")
+    @JsonManagedReference
     private Collection<GraveSite> graveSites;
 
     private String cemeterySection;

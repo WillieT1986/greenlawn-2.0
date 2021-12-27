@@ -64,18 +64,18 @@ public class GraveSiteRestController {
         return "cemeterySections";
     }
 
-    @RequestMapping("/cemetery-sections")
-    public Iterable<CemeterySection> findCemeterySections() {
-        return cemeterySectionRepo.findAll();
-    }
-
-    @RequestMapping("/cemetery-section/{id}")
+    @RequestMapping("/cemeterySection/{id}")
     public CemeterySection findCemeterySection(@PathVariable(name = "id") Long id) {
         if (cemeterySectionRepo.getById(id) == null) {
             throw new CannotFindException("Invalid Query. Unable to Find Cemetery Section.");
         }
         return cemeterySectionRepo.getById(id);
     }
+
+//    @RequestMapping("/cemeterySection/{id}")
+//    public String findCemeterySectionByCemeterySectionId(@PathVariable(name = "id") Long id) {
+//        return cemeterySectionRepo.getById(id).getCemeterySection();
+//    }
 
     public Iterable<CemeteryTag> findCemeteryTags(Model model) {
         return cemeteryTagRepo.findAll();

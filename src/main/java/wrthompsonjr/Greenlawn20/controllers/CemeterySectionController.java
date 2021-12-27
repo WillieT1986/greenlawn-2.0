@@ -14,15 +14,15 @@ public class CemeterySectionController {
     @Resource
     private CemeterySectionRepository  cemeterySectionRepo;
 
-    @RequestMapping(value = "cemetery-section")
+    @RequestMapping(value = "cemeterySection")
     public String findOneCemeterySection(@RequestParam Long id, Model model) {
-        model.addAttribute("cemetery-section", cemeterySectionRepo.getById(id));
-        return "cemetery-section";
+        model.addAttribute("cemeterySection", cemeterySectionRepo.getById(id));
+        return "cemeterySection";
     }
 
-    @RequestMapping(value = "cemetery-sections")
+    @RequestMapping(value = "cemeterySections")
     public String FindAllCemeterySections(Model model) {
-        model.addAttribute("cemetery-sections", cemeterySectionRepo.findAll());
-        return "cemetery-sections";
+        model.addAttribute("cemeterySections", cemeterySectionRepo.findAll());
+        return "cemeterySections";
     }
 }
