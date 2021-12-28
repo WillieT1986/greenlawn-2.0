@@ -20,7 +20,7 @@ public class CemeteryTagController {
         return "cemeteryTag";
     }
 
-    @RequestMapping(value = "cemeteryTags")
+    @RequestMapping(path = "cemeteryTags")
     public String FindAllCemeterySections(Model model) {
         model.addAttribute("cemeteryTags", cemeteryTagRepo.findAll());
         return "cemeteryTags";

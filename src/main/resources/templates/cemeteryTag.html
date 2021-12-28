@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Tag</title>
+    <title>[(${cemeteryTag.cemeteryTagName})]</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link rel="stylesheet" type="text/css" href="./css/tag.css" />
 </head>
@@ -12,22 +12,22 @@
         <h2 class="font-patua">Cemetery Interactive Grave Search</h2>
         <nav>
             <ul class="header-nav font-lato">
-                <li><a href="http://localhost:8080/index">Home</a></li>
-                <li><a href="http://localhost:8080/cemetery-tags">Tags</a></li>
+                <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
+                <li><a href="http://localhost:8080/cemeteryTags">Tags</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <h2 class="welcome font-patua">Welcome to Tag</h2>
-<!--        <section class="cards">-->
-<!--            <article class="card font-lato hover-grow" id="tag-background-image" th:each="tag: ${tag.graveSites}">-->
-<!--                <img th:src="${tag.tombstoneImageUrl}" width="250px" height="125px">-->
-<!--                <h3><a th:href="@{/graveSite(id=${tag.id})}" th:text="${tag.name}"></a></h3>-->
-<!--                <p>[(${tag.dateOfBirth})] - [(${tag.dateOfDeath})]</p>-->
-<!--                <p th:text="${tag.status}"></p>-->
-<!--            </article>-->
-<!--        </section>-->
+        <section class="cards">
+            <article class="card font-lato hover-grow" id="tag-background-image" th:each="cemeteryTag: ${cemeteryTag.graveSites}">
+                <img th:attr="src=@{cemeteryTag.tombstoneImageUrl}" width="250px" height="125px">
+                <h3><a th:href="@{/graveSite(id=${cemeteryTag.id})}" th:text="${cemeteryTag.name}"></a></h3>
+                <p>[(${cemeteryTag.dateOfBirth})] - [(${cemeteryTag.dateOfDeath})]</p>
+                <p th:text="${cemeteryTag.status}"></p>
+            </article>
+        </section>
     </main>
 
     <footer>

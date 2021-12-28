@@ -23,7 +23,7 @@
         <p class="welcome font-lato">Interested in knowing more? Check out these Tags that associate certain people with certain Tags.</p>
         <section class="cards">
             <article class="card font-lato hover-grow" th:each="cemeteryTag: ${cemeteryTags}">
-                <h3><a th:href="@{/cemeteryTag(id=${cemeteryTag.id})}" th:text="${cemeteryTag}"/></h3>
+                <h3><a th:href="@{/cemeteryTag(id=${cemeteryTag.id})}" th:text="${cemeteryTag.cemeteryTagName}"/></h3>
             </article>
         </section>
     </main>
