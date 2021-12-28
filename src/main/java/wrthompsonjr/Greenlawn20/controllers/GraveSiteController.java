@@ -14,9 +14,16 @@ public class GraveSiteController {
     @Resource
     private GraveSiteRepository graveSiteRepo;
 
-    @RequestMapping("GraveSite")
+    @RequestMapping("graveSite")
     public String findOneGraveSite(@RequestParam Long id, Model model) {
-        model.addAttribute("GraveSite", graveSiteRepo.getById(id));
-        return "GraveSite";
+        model.addAttribute("graveSite", graveSiteRepo.getById(id));
+        return "graveSite";
     }
+
+    @RequestMapping(value = "graveSites")
+    public String FindAllCemeterySections(Model model) {
+        model.addAttribute("graveSites", graveSiteRepo.findAll());
+        return "graveSites";
+    }
+
 }

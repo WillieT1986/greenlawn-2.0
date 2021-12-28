@@ -72,11 +72,6 @@ public class GraveSiteRestController {
         return cemeterySectionRepo.getById(id);
     }
 
-//    @RequestMapping("/cemeterySection/{id}")
-//    public String findCemeterySectionByCemeterySectionId(@PathVariable(name = "id") Long id) {
-//        return cemeterySectionRepo.getById(id).getCemeterySection();
-//    }
-
     public Iterable<CemeteryTag> findCemeteryTags(Model model) {
         return cemeteryTagRepo.findAll();
     }
