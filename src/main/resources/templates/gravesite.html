@@ -11,11 +11,11 @@
 
   <header>
     <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
-    <h2 class="font-patua">Cemeterye Grave Search</h2>
+    <h2 class="font-patua">Cemetery Grave Search</h2>
     <nav>
       <ul class="header-nav font-lato">
-        <li><a href="http://localhost:8080/index">Home</a></li>
-        <li><a href="http://localhost:8080/cemetery-tags">Tags</a></li>
+        <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
+        <li><a href="http://localhost:8080/cemeteryTags">Tags</a></li>
       </ul>
     </nav>
   </header>
@@ -26,34 +26,35 @@
       Gravesite
     </h2>
 
-<!--    <section class="cards" id="gravesite-background-image">-->
+    <section class="cards" id="gravesite-background-image">
 <!--      <img class="card regular-img modal-image" th:if="${!graveSite.regularImageUrl.empty}" th:src="${graveSite.regularImageUrl}" th:alt="${graveSite.name}" width="350px" height="450px">-->
 
-<!--      <article class="card font-lato">-->
-<!--        <img class="tombstone-image modal-image" th:src="${graveSite.tombstoneImageUrl}" th:alt="${graveSite.name}" width="400px" height="220px">-->
-<!--        <p th:text="${graveSite.religion}"></p>-->
-<!--        <p th:text="${graveSite.name}"></p>-->
-<!--        <p th:text="${graveSite.usState}"></p>-->
-<!--        <p th:text="${graveSite.militaryRank}"></p>-->
-<!--        <p>[(${graveSite.militaryBranch})] [(${graveSite.militaryUnit})]</p>-->
-<!--        <p th:text="${graveSite.dateOfBirth}">Date of Birth</p>-->
-<!--        <p th:text="${graveSite.dateOfDeath}">Date of Death</p>-->
+      <article class="card font-lato">
+        <img class="tombstone-image modal-image" th:attr="src=@{graveSite.tombstoneImageUrl}" th:alt="${graveSite.name}" width="400px" height="220px">
+        <p th:text="${graveSite.religion}"></p>
+        <p th:text="${graveSite.name}"></p>
+        <p th:text="${graveSite.state}"></p>
+        <p th:text="${graveSite.militaryRank}"></p>
+        <p>[(${graveSite.militaryBranch})] [(${graveSite.militaryUnit})]</p>
+        <p th:text="${graveSite.dateOfBirth}">Date of Birth</p>
+        <p th:text="${graveSite.dateOfDeath}">Date of Death</p>
 <!--        <p th:text="${graveSite.militaryMedal}">Military Medals</p>-->
 <!--        <p><a th:href="${graveSite.gpsCoordinates}" target="_blank">Location</a></p>-->
-<!--        <p th:each="tag: ${graveSite.tags}"><a th:href="@{/tag(id=${tag.id})}" th:text="${tag.tag}"></a></p>-->
-<!--      </article>-->
+        <p th:each="cemeteryTag: ${graveSite.cemeteryTags}"><a th:href="@{/cemeteryTag(id=${cemeteryTag.id})}" th:text="${cemeteryTag.cemeteryTagName}"></a></p>
 
-<!--      <div id="myModal" class="modal">-->
-<!--        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>-->
-<!--        <img class="modal-content" id="img01">-->
-<!--        <div id="caption"></div>-->
-<!--      </div>-->
-<!--    </section>-->
+      </article>
+
+      <div id="myModal" class="modal">
+        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
+    </section>
 
     <section class="obituary font-lato" id="gravesite-obituary-background-image">
       <article>
         <h3>Obituary</h3>
-<!--        <p th:text="${graveSite.obituary}"></p>-->
+        <p th:text="${graveSite.obituary}"></p>
       </article>
     </section>
 

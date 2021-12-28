@@ -25,5 +25,4 @@ public class GraveSiteController {
         model.addAttribute("graveSites", graveSiteRepo.findAll());
         return "graveSites";
     }
-
 }
