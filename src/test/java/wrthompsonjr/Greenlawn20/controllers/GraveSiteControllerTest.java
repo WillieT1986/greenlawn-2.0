@@ -39,13 +39,13 @@ public class GraveSiteControllerTest {
         long graveSiteId = 1L;
         when(graveSiteRepo.getById(graveSiteId)).thenReturn(graveSite1);
         underTest.findOneGraveSite(graveSiteId, model);
-        verify(model).addAttribute("GraveSite", graveSite1);
+        verify(model).addAttribute("graveSite", graveSite1);
     }
 
     @Test
     public void shouldReturnAnIndividualGraveSite() {
         String template = underTest.findOneGraveSite(1L, model);
-        assertThat(template, is("GraveSite"));
+        assertThat(template, is("graveSite"));
     }
 
 }
