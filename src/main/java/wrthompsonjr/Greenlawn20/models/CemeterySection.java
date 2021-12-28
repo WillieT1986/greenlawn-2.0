@@ -16,7 +16,7 @@ public class CemeterySection {
     private long id;
 
     @OneToMany(mappedBy = "cemeterySection")
-//    @JsonManagedReference
+    @JsonManagedReference
     private Collection<GraveSite> graveSites;
 
     private String cemeterySection;

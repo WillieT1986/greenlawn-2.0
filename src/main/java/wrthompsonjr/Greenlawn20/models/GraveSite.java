@@ -18,7 +18,7 @@ public class GraveSite {
 
     @JsonIgnore
     @ManyToOne
-//    @JsonBackReference
+    @JsonBackReference
     private CemeterySection cemeterySection;
 
 
