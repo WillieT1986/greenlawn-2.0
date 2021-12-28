@@ -73,11 +73,6 @@ public class GraveSiteMvcTest {
     }
 
     @Test
-    public void shouldRetrieveCemeteryTags() throws Exception {
-        mvc.perform(get("/cemeteryTags")).andExpect(status().isOk());
-    }
-
-    @Test
     public void shouldGetAnIndividualCemeteryTag() throws Exception {
         when(cemeteryTagRepo.getById(46L)).thenReturn(new CemeteryTag("Military"));
         mvc.perform(get("/cemeteryTag/46")).andExpect(status().isOk());
