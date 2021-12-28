@@ -16,17 +16,16 @@ public class CemeterySection {
     private long id;
 
     @OneToMany(mappedBy = "cemeterySection")
-    @JsonManagedReference
+//    @JsonManagedReference
     private Collection<GraveSite> graveSites;
 
     private String cemeterySection;
 
-    public CemeterySection(String cemeterySection) {
-        this.cemeterySection = cemeterySection;
+    public CemeterySection() {
     }
 
-    public CemeterySection() {
-
+    public CemeterySection(String cemeterySection) {
+        this.cemeterySection = cemeterySection;
     }
 
     public Collection<GraveSite> getGraveSites() {

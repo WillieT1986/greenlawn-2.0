@@ -16,16 +16,18 @@ public class GraveSite {
     @GeneratedValue
     private long id;
 
-
-    @ManyToOne
     @JsonIgnore
-    @JsonBackReference
+    @ManyToOne
+//    @JsonBackReference
     private CemeterySection cemeterySection;
 
 
     @ManyToMany
     @JsonIgnore
     private Collection<CemeteryTag> cemeteryTags;
+
+    @Lob
+    private String obituary;
 
     private String tombstoneImage;
     private String name;
@@ -36,7 +38,6 @@ public class GraveSite {
     private String dateOfBirth;
     private String dateOfDeath;
     private String status;
-    private String obituary;
     private String religion;
 
     public GraveSite() {
