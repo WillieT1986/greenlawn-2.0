@@ -38,13 +38,13 @@ public class CemeteryTagControllerTest {
         long cemeteryTagId = 3L;
         when(cemeteryTagRepo.getById(cemeteryTagId)).thenReturn(cemeteryTag1);
         underTest.findOneCemeteryTag(cemeteryTagId, model);
-        verify(model).addAttribute("CemeteryTag", cemeteryTag1);
+        verify(model).addAttribute("cemeteryTag", cemeteryTag1);
     }
 
     @Test
     public void shouldReturnAnIndividualCemeteryTagToModel() {
         String template = underTest.findOneCemeteryTag(3L, model);
-        assertThat(template, is("CemeteryTag"));
+        assertThat(template, is("cemeteryTag"));
     }
 
 }

@@ -12,36 +12,36 @@
         <h2 class="font-patua">Cemetery Grave Search</h2>
         <nav>
             <ul class="header-nav font-lato">
-                <li><a href="http://localhost:8080/index">Home</a></li>
-                <li><a href="http://localhost:8080/tags">Tags</a></li>
+                <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
+                <li><a href="http://localhost:8080/cemeteryTags">Tags</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <h2 class="welcome font-patua">The Burials of GreenLawn</h2>
-<!--        <section class="search font-lato" id="cemetery-section-background-image">-->
-<!--            <article class="search-card font-lato">-->
-<!--                <h3>This is where you can search for an individual by either entering a Letter or a Name.</h3>-->
-<!--            </article>-->
-<!--            <form class="search-card font-lato" id=f1 name="f1" action="" onSubmit="if(this.t1.value!=null && this.t1.value!='') findString(this.t1.value);return false">-->
-<!--                <input type="text" id=t1 name=t1 value="" size=20>-->
-<!--                <input type="submit" name=b1 value="Search">-->
-<!--            </form>-->
-<!--        </section>-->
-<!--        <section class="cards">-->
-<!--            <article class="card font-lato hover-grow" id="cemetery-section-background-image" th:each="graveSite: ${graveSites}">-->
-<!--                <img class="modal-image" th:src="${graveSite.tombstoneImageUrl}" th:alt="${graveSite.name}" width="250px" height="125px">-->
-<!--                <h3><a th:href="@{/graveSite(id=${graveSite.id})}" th:text="${graveSite.name}"></a></h3>-->
-<!--                <p>[(${graveSite.dateOfBirth})] - [(${graveSite.dateOfDeath})]</p>-->
-<!--                <p th:text="${graveSite.status}"></p>-->
-<!--            </article>-->
-<!--            <div id="myModal" class="modal">-->
-<!--                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>-->
-<!--                <img class="modal-content" id="img01">-->
-<!--                <div id="caption"></div>-->
-<!--            </div>-->
-<!--        </section>-->
+        <section class="search font-lato" id="cemetery-section-background-image">
+            <article class="search-card font-lato">
+                <h3>This is where you can search for an individual by either entering a Letter or a Name.</h3>
+            </article>
+            <form class="search-card font-lato" id=f1 name="f1" action="" onSubmit="if(this.t1.value!=null && this.t1.value!='') findString(this.t1.value);return false">
+                <input type="text" id=t1 name=t1 value="" size=20>
+                <input type="submit" name=b1 value="Search">
+            </form>
+        </section>
+        <section class="cards">
+            <article class="card font-lato hover-grow" id="cemetery-section-background-image" th:each="graveSite: ${graveSites}">
+                <img class="modal-image" th:attr="src=@{graveSite.tombstoneImageUrl}" th:alt="${graveSite.name}" width="250px" height="125px">
+                <h3><a th:href="@{/graveSite(id=${graveSite.id})}" th:text="${graveSite.name}"></a></h3>
+                <p>[(${graveSite.dateOfBirth})] - [(${graveSite.dateOfDeath})]</p>
+                <p th:text="${graveSite.status}"></p>
+            </article>
+            <div id="myModal" class="modal">
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+        </section>
     </main>
 
     <footer>

@@ -14,9 +14,16 @@ public class CemeteryTagController {
     @Resource
     private CemeteryTagRepository cemeteryTagRepo;
 
-    @RequestMapping(value = "CemeteryTag")
+    @RequestMapping(value = "cemeteryTag")
     public String findOneCemeteryTag(@RequestParam Long id, Model model) {
-        model.addAttribute("CemeteryTag", cemeteryTagRepo.getById(id));
-        return "CemeteryTag";
+        model.addAttribute("cemeteryTag", cemeteryTagRepo.getById(id));
+        return "cemeteryTag";
     }
+
+    @RequestMapping(path = "cemeteryTags")
+    public String FindAllCemeterySections(Model model) {
+        model.addAttribute("cemeteryTags", cemeteryTagRepo.findAll());
+        return "cemeteryTags";
+    }
+
 }
