@@ -22,7 +22,7 @@
         <h2 class="welcome font-patua">Welcome to Tag</h2>
         <section class="cards">
             <article class="card font-lato hover-grow" id="tag-background-image" th:each="cemeteryTag: ${cemeteryTag.graveSites}">
-                <img th:attr="src=@{cemeteryTag.tombstoneImageUrl}" width="250px" height="125px">
+                <img th:src="${cemeteryTag.tombstoneImage}" width="250px" height="125px">
                 <h3><a th:href="@{/graveSite(id=${cemeteryTag.id})}" th:text="${cemeteryTag.name}"></a></h3>
                 <p>[(${cemeteryTag.dateOfBirth})] - [(${cemeteryTag.dateOfDeath})]</p>
                 <p th:text="${cemeteryTag.status}"></p>

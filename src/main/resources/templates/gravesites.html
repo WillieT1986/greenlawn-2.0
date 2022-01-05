@@ -31,7 +31,15 @@
         </section>
         <section class="cards">
             <article class="card font-lato hover-grow" id="cemetery-section-background-image" th:each="graveSite: ${graveSites}">
-                <img class="modal-image" th:attr="src=@{graveSite.tombstoneImageUrl}" th:alt="${graveSite.name}" width="250px" height="125px">
+
+
+
+
+                <img class="modal-image" th:src="${graveSite.tombstoneImage}" th:alt="${graveSite.name}" width="250px" height="125px">
+
+
+
+
                 <h3><a th:href="@{/graveSite(id=${graveSite.id})}" th:text="${graveSite.name}"></a></h3>
                 <p>[(${graveSite.dateOfBirth})] - [(${graveSite.dateOfDeath})]</p>
                 <p th:text="${graveSite.status}"></p>

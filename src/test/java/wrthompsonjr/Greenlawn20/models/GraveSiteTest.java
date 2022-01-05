@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 public class GraveSiteTest {
 
     private static final String TOMBSTONE_IMAGE = "Tombstone Image";
+    private static final String REGULAR_IMAGE = "Regular Image";
     private static final String NAME_OF_PERSON = "Jack";
     private static final String US_STATE = "Ohio";
     private static final String MILITARY_RANK = "Lance Corporal";
@@ -20,12 +21,16 @@ public class GraveSiteTest {
     private static final String OBITUARY = "A whole bunch of words. Not Really.";
     private static final CemeterySection CEMETERY_SECTION = null;
     private static final String RELIGION = "Jedi";
+    private static final String MILITARY_MEDAL = "Git Gud";
+    private static final String GPS_COORDINATES = "No, No";
 
     GraveSite underTest;
 
     @BeforeEach
     public void setUp() {
-        underTest = new GraveSite(TOMBSTONE_IMAGE, NAME_OF_PERSON, US_STATE, MILITARY_RANK, MILITARY_BRANCH, MILITARY_UNIT, DATE_OF_BIRTH, Date_OF_DEATH, STATUS, OBITUARY, CEMETERY_SECTION, RELIGION);
+        underTest = new GraveSite(TOMBSTONE_IMAGE, REGULAR_IMAGE, NAME_OF_PERSON, US_STATE,
+                MILITARY_RANK, MILITARY_BRANCH, MILITARY_UNIT, DATE_OF_BIRTH, Date_OF_DEATH, STATUS, OBITUARY,
+                CEMETERY_SECTION, RELIGION, MILITARY_MEDAL, GPS_COORDINATES);
     }
 
     @Test
@@ -71,7 +76,7 @@ public class GraveSiteTest {
 
     @Test
     public void shouldReturnAnImage() {
-        String check = underTest.getImageOfTombStone();
+        String check = underTest.getTombstoneImage();
         assertEquals(TOMBSTONE_IMAGE, check);
     }
 
@@ -91,4 +96,21 @@ public class GraveSiteTest {
         assertEquals(MILITARY_UNIT, check3);
     }
 
+    @Test
+    public void shouldReturnRegularImage() {
+        String check = underTest.getRegularImage();
+        assertEquals(REGULAR_IMAGE, check);
+    }
+
+    @Test
+    public void shouldReturnAMilitaryMedal() {
+        String check = underTest.getMilitaryMedal();
+        assertEquals(MILITARY_MEDAL, check);
+    }
+
+    @Test
+    public void shouldReturnGpsCoordinates() {
+        String check = underTest.getGpsCoordinates();
+        assertEquals(GPS_COORDINATES, check);
+    }
 }

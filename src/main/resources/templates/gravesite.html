@@ -27,10 +27,10 @@
     </h2>
 
     <section class="cards" id="gravesite-background-image">
-<!--      <img class="card regular-img modal-image" th:if="${!graveSite.regularImageUrl.empty}" th:src="${graveSite.regularImageUrl}" th:alt="${graveSite.name}" width="350px" height="450px">-->
+      <img class="card regular-img modal-image" th:if="${!graveSite.regularImage.empty}" th:src="${graveSite.regularImage}" th:alt="${graveSite.name}" width="350px" height="450px" />
 
       <article class="card font-lato">
-        <img class="tombstone-image modal-image" th:attr="src=@{graveSite.tombstoneImageUrl}" th:alt="${graveSite.name}" width="400px" height="220px">
+        <img class="tombstone-image modal-image" th:src="${graveSite.tombstoneImage}" th:alt="${graveSite.name}" width="400px" height="220px">
         <p th:text="${graveSite.religion}"></p>
         <p th:text="${graveSite.name}"></p>
         <p th:text="${graveSite.state}"></p>
@@ -38,8 +38,8 @@
         <p>[(${graveSite.militaryBranch})] [(${graveSite.militaryUnit})]</p>
         <p th:text="${graveSite.dateOfBirth}">Date of Birth</p>
         <p th:text="${graveSite.dateOfDeath}">Date of Death</p>
-<!--        <p th:text="${graveSite.militaryMedal}">Military Medals</p>-->
-<!--        <p><a th:href="${graveSite.gpsCoordinates}" target="_blank">Location</a></p>-->
+        <p th:text="${graveSite.militaryMedal}">Military Medals</p>
+        <p><a th:href="${graveSite.gpsCoordinates}" target="_blank">Location</a></p>
         <p th:each="cemeteryTag: ${graveSite.cemeteryTags}"><a th:href="@{/cemeteryTag(id=${cemeteryTag.id})}" th:text="${cemeteryTag.cemeteryTagName}"></a></p>
 
       </article>
