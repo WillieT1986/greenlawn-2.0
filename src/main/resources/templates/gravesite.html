@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Gravesite</title>
@@ -11,7 +11,7 @@
 
   <header>
     <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
-    <h2 class="font-patua">Cemetery Grave Search</h2>
+    <h1 class="font-patua">Cemetery Grave Search</h1>
     <nav>
       <ul class="header-nav font-lato">
         <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
@@ -21,7 +21,7 @@
   </header>
 
   <main>
-    <h2 class="welcome font-patua">Resting Place <br>
+    <h2 class="welcome font-patua"> Resting Place <br>
       of <br>
       Gravesite
     </h2>
@@ -41,7 +41,6 @@
         <p th:text="${graveSite.militaryMedal}">Military Medals</p>
         <p><a th:href="${graveSite.gpsCoordinates}" target="_blank">Location</a></p>
         <p th:each="cemeteryTag: ${graveSite.cemeteryTags}"><a th:href="@{/cemeteryTag(id=${cemeteryTag.id})}" th:text="${cemeteryTag.cemeteryTagName}"></a></p>
-
       </article>
 
       <div id="myModal" class="modal">
@@ -49,13 +48,16 @@
         <img class="modal-content" id="img01">
         <div id="caption"></div>
       </div>
+
     </section>
 
     <section class="obituary font-lato" id="gravesite-obituary-background-image">
+
       <article>
         <h3>Obituary</h3>
         <p th:text="${graveSite.obituary}"></p>
       </article>
+
     </section>
 
   </main>

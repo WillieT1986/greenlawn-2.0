@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Gravesites</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link rel="stylesheet" type="text/css" href="./css/gravesites.css" />
 </head>
+
 <body lass="container">
+
     <header>
         <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
-        <h2 class="font-patua">Cemetery Grave Search</h2>
+        <h1 class="font-patua">Cemetery Grave Search</h1>
         <nav>
             <ul class="header-nav font-lato">
                 <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
@@ -20,6 +23,7 @@
 
     <main>
         <h2 class="welcome font-patua">The Burials of GreenLawn</h2>
+
         <section class="search font-lato" id="cemetery-section-background-image">
             <article class="search-card font-lato">
                 <h3>This is where you can search for an individual by either entering a Letter or a Name.</h3>
@@ -28,27 +32,31 @@
                 <input type="text" id=t1 name=t1 value="" size=20>
                 <input type="submit" name=b1 value="Search">
             </form>
+
         </section>
+
         <section class="cards">
+
             <article class="card font-lato hover-grow" id="cemetery-section-background-image" th:each="graveSite: ${graveSites}">
                 <img class="modal-image" th:src="${graveSite.tombstoneImage}" th:alt="${graveSite.name}" width="250px" height="125px">
                 <h3><a th:href="@{/graveSite(id=${graveSite.id})}" th:text="${graveSite.name}"></a></h3>
                 <p>[(${graveSite.dateOfBirth})] - [(${graveSite.dateOfDeath})]</p>
                 <p th:text="${graveSite.status}"></p>
             </article>
+
             <div id="myModal" class="modal">
                 <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
                 <img class="modal-content" id="img01">
                 <div id="caption"></div>
             </div>
+
         </section>
+
     </main>
 
     <footer>
         <small class="font-lato">&copy 2021</small>
     </footer>
-
-
 
 
 </body>

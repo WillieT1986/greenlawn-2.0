@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <title>Cemetery Sections</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/cemeterySections.css" />
+</head>
 
 <body class="container">
 
     <header>
         <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
-        <h2 class="font-patua">Cemetery Interactive Grave Search</h2>
+        <h1 class="font-patua">Cemetery Interactive Grave Search</h1>
         <nav>
             <ul class="font-lato">
                 <li><a href="graveSites">Gravesites</a></li>
@@ -24,7 +25,7 @@
         <h2 class="welcome font-patua">Welcome to the  Cemetery advanced search.</h2>
         <p class="intro font-lato">With this Application, you can click on a Cemetery Section located within the Cemetery</p>
         <p class="intro font-lato"> <strong>OR</strong> </p>
-        <p class="intro font-lato">Check out the entire database of all those who are laid to rest: &nbsp;<a href="http://localhost:8080/graveSites">HERE</a></p>
+        <p class="intro font-lato">Check out the entire database of all those who are laid to rest: &nbsp;<a href="graveSites">HERE</a></p>
 
         <section class="cards">
             <article class="card font-lato hover-grow" th:each="cemeterySection: ${cemeterySections}">
