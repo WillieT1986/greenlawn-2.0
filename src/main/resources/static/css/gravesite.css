@@ -1,6 +1,3 @@
-/*
-	The commented out sections is used to help map out the cards.
-*/
 
 .welcome {
     display: flex;
@@ -8,6 +5,9 @@
     text-align: center;
     margin: .5rem;
     color: rgb(153, 112, 0);
+    font-family: "Times New Roman";
+    font-size: 30px;
+
 }
 
 .cards {
@@ -24,7 +24,6 @@
     padding-bottom: 1.5rem;
     border-radius: 1rem;
     border: 0.125rem solid black;
-    /*background-color: snow;*/
 }
 
 .card {
@@ -33,25 +32,41 @@
     justify-content: center;
     align-items: center;
     border-radius: .5rem;
-    /*border: 0.125rem solid black;*/
-    /*background-color: lightblue;*/
 }
 
 .card a {
     color: rgb(153, 112, 0);
+    font-family: "Times New Roman";
 }
 
 .regular-img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 50%;
 }
 
 .tombstone-image {
     display: block;
     margin: auto;
-    width: 75%;
+    width: 80%;
+}
+
+.center-p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: .5rem;
+}
+
+.transparent-p {
+    background-color: rgba(255, 255, 255, .5);
+    padding: .3rem;
+}
+
+p {
+    font-family: "Calibri";
+    font-size: 20px;
 }
 
 .obituary {
@@ -64,9 +79,21 @@
     border-radius: 1rem;
     border: 0.125rem solid black;
     background-color: snow;
+    font-family: "Calibri";
+}
+
+.obituary-article {
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: .5rem;
+    padding: .3rem;
 }
 
 .obituary h3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Times New Roman";
+    font-size: 30px;
     color: rgb(153, 112, 0);
 }
 
