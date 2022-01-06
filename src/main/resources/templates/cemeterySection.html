@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,8 @@
     </header>
 
     <main>
-        <h2 class="welcome font-patua">Welcome to Cemetery Section #[(${cemeterySection.cemeterySection})] </h2>
+        <h2 class="welcome font-patua">Welcome to Cemetery Section</h2>
+        <h2 class="welcome font-patua">#[(${cemeterySection.cemeterySection})] </h2>
 
         <section class="cards">
             <article class="card font-lato hover-grow" id="cemetery-section-background-image" th:each="cemeterySection: ${cemeterySection.graveSites}">

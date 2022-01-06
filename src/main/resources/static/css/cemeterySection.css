@@ -7,6 +7,7 @@
     justify-content: center;
     margin: 1rem;
     color: rgb(153, 112, 0);
+    font-size: 30px;
 }
 
 .cards {
@@ -16,9 +17,6 @@
     margin: auto;
     width: 50%;
     margin-bottom: 1rem;
-    /*border-radius: 1rem;*/
-    /*border: 0.125rem solid black;*/
-    /*background-color: lightgreen;*/
 }
 
 .card {
@@ -31,7 +29,6 @@
     margin: .5rem;
     border-radius: .5rem;
     border: 0.125rem solid black;
-    /*background-color: snow;*/
 }
 
 .card a {
