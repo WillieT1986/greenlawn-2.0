@@ -3,7 +3,12 @@ package wrthompsonjr.Greenlawn20.models;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import net.minidev.json.annotate.JsonIgnore;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -21,15 +26,14 @@ public class GraveSite {
     @JsonBackReference
     private CemeterySection cemeterySection;
 
-
     @ManyToMany
     @JsonIgnore
     private Collection<CemeteryTag> cemeteryTags;
 
     @Lob
     private String obituary;
-
     private String tombstoneImage;
+    private String regularImage;
     private String name;
     private String state;
     private String military_rank;
@@ -39,14 +43,18 @@ public class GraveSite {
     private String dateOfDeath;
     private String status;
     private String religion;
+    private String militaryMedal;
+    private String gpsCoordinates;
 
     public GraveSite() {
     }
 
-    public GraveSite(String tombstoneImage, String name, String state, String military_rank, String military_branch,
+    public GraveSite(String tombstoneImage, String regularImage, String name, String state, String military_rank, String military_branch,
                      String military_unit, String dateOfBirth, String dateOfDeath, String status, String obituary,
-                     CemeterySection cemeterySection, String religion, CemeteryTag... cemeteryTags) {
+                     CemeterySection cemeterySection, String religion, String militaryMedal, String gpsCoordinates,
+                     CemeteryTag... cemeteryTags) {
         this.tombstoneImage = tombstoneImage;
+        this.regularImage = regularImage;
         this.name = name;
         this.state = state;
         this.military_rank = military_rank;
@@ -58,6 +66,8 @@ public class GraveSite {
         this.obituary = obituary;
         this.cemeterySection = cemeterySection;
         this.religion = religion;
+        this.militaryMedal = militaryMedal;
+        this.gpsCoordinates = gpsCoordinates;
         this.cemeteryTags = new HashSet<>(asList(cemeteryTags));
     }
 
@@ -65,8 +75,12 @@ public class GraveSite {
         return cemeteryTags;
     }
 
-    public String getImageOfTombStone() {
+    public String getTombstoneImage() {
         return tombstoneImage;
+    }
+
+    public String getRegularImage() {
+        return regularImage;
     }
 
     public String getName() {
@@ -109,6 +123,14 @@ public class GraveSite {
         return religion;
     }
 
+    public String getMilitaryMedal() {
+        return militaryMedal;
+    }
+
+    public String getGpsCoordinates() {
+        return gpsCoordinates;
+    }
+
     public long getId() {
         return id;
     }
@@ -128,4 +150,5 @@ public class GraveSite {
         }
         return id == ((GraveSite) obj).id;
     }
+
 }

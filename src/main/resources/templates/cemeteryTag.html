@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>[(${cemeteryTag.cemeteryTagName})]</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <link rel="stylesheet" type="text/css" href="./css/tag.css" />
+    <link rel="stylesheet" type="text/css" href="./css/cemeteryTag.css" />
 </head>
+
 <body class="container">
+
     <header>
         <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
-        <h2 class="font-patua">Cemetery Interactive Grave Search</h2>
+        <h1 class="font-patua">Cemetery Interactive Grave Search</h1>
         <nav>
             <ul class="header-nav font-lato">
                 <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
@@ -19,14 +23,21 @@
     </header>
 
     <main>
-        <h2 class="welcome font-patua">Welcome to Tag</h2>
+        <h2 class="welcome font-patua">Gravesite's Listed Under [(${cemeteryTag.cemeteryTagName})]</h2>
         <section class="cards">
             <article class="card font-lato hover-grow" id="tag-background-image" th:each="cemeteryTag: ${cemeteryTag.graveSites}">
-                <img th:attr="src=@{cemeteryTag.tombstoneImageUrl}" width="250px" height="125px">
+                <img class="modal-image" th:src="${cemeteryTag.tombstoneImage}" width="250px" height="125px">
                 <h3><a th:href="@{/graveSite(id=${cemeteryTag.id})}" th:text="${cemeteryTag.name}"></a></h3>
                 <p>[(${cemeteryTag.dateOfBirth})] - [(${cemeteryTag.dateOfDeath})]</p>
                 <p th:text="${cemeteryTag.status}"></p>
             </article>
+
+            <div id="myModal" class="modal">
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+
         </section>
     </main>
 
@@ -36,4 +47,5 @@
 
 
 </body>
+<script src="./js/modal.js"></script>
 </html>

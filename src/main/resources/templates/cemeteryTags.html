@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>Tags</title>
+    <title>Cemetery Tags</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="stylesheet" type="text/css" href="./css/tags.css">
+    <link rel="stylesheet" type="text/css" href="./css/cemeteryTags.css">
 </head>
+
 <body class="container">
 
     <header>
         <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
-        <h2 class="font-patua">Cemetery Interactive Grave Search</h2>
+        <h1 class="font-patua">Cemetery Interactive Grave Search</h1>
         <nav>
             <ul class="header-nav font-lato">
                 <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
@@ -19,20 +21,22 @@
     </header>
 
     <main>
-        <h2 class="welcome font-patua">Welcome to Tags</h2>
-        <p class="welcome font-lato">Interested in knowing more? Check out these Tags that associate certain people with certain Tags.</p>
+        <h2 class="welcome font-patua">Welcome to Cemetery Tags</h2>
+        <p class="intro">Interested in knowing more? Check out these Tags that associate certain people with certain Tags.</p>
+
         <section class="cards">
+
             <article class="card font-lato hover-grow" th:each="cemeteryTag: ${cemeteryTags}">
                 <h3><a th:href="@{/cemeteryTag(id=${cemeteryTag.id})}" th:text="${cemeteryTag.cemeteryTagName}"/></h3>
             </article>
+
         </section>
+
     </main>
 
     <footer>
         <small class="font-lato">&copy 2021</small>
     </footer>
-
-
 
 
 </body>

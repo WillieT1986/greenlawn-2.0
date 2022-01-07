@@ -1,13 +1,10 @@
-/*
-	The commented out sections is used to help map out the cards.
-*/
-
 .welcome {
     display: flex;
     justify-content: center;
     text-align: center;
     margin: 1rem;
     color: rgb(153, 112, 0);
+    font-size: 30px;
 }
 
 .search {
@@ -32,8 +29,6 @@
     margin-bottom: auto;
     padding: .25rem;
     border-radius: 1rem;
-    /*border: 0.125rem solid black;*/
-    /*background-color: lightgray;*/
 }
 
 .cards {
@@ -43,9 +38,6 @@
     margin: auto;
     width: 75%;
     margin-bottom: 1rem;
-    /*border-radius: 1rem;*/
-    /*border: 0.125rem solid black;*/
-    /*background-color: lightgreen;*/
 }
 
 .card {
@@ -58,11 +50,19 @@
     margin: .5rem;
     border-radius: .5rem;
     border: 0.125rem solid black;
-    /*background-color: snow;*/
+}
+
+h4 {
+    font-family: "Times New Roman";
+    font-size: 20px;
 }
 
 .card a {
     color: rgb(153, 112, 0);
+}
+
+p {
+    font-family: "Calibri";
 }
 
 #cemetery-section-background-image {

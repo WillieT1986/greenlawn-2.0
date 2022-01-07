@@ -1,28 +1,28 @@
-/*
-	The commented out sections is used to help map out the cards.
-*/
-
-h2 {
-    color: rgb(153, 112, 0);
-}
 
 .welcome {
     display: flex;
     justify-content: center;
     margin: 1rem;
     color: rgb(153, 112, 0);
+    font-size: 30px;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-bottom: .5rem;
+    font-family: "Times New Roman";
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(16rem, .5fr));
-    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(16.25rem, .5fr));
+    grid-gap: .5rem;
     margin: auto;
     width: 50%;
-    margin-bottom: 1rem;
-    /*	border-radius: 1rem;
-        border: 0.125rem solid black;
-        background-color: lightgreen;*/
 }
 
 .card {
@@ -36,14 +36,9 @@ h2 {
     border-radius: .5rem;
     border: 0.125rem solid black;
     background-color: snow;
+    font-family: "Times New Roman";
 }
 
 .card a {
     color: rgb(153, 112, 0);
-}
-
-#tag-background-image {
-    background: url(/images/marble.jpg);
-    background-size: auto auto;
-    background-repeat: no-repeat;
 }

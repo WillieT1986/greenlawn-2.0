@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Gravesites</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <link rel="stylesheet" type="text/css" href="./css/graveSites.css" />
+    <link rel="stylesheet" type="text/css" href="./css/gravesites.css" />
 </head>
-<body lass="container">
+
+<body class="container">
+
     <header>
         <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
-        <h2 class="font-patua">Cemetery Grave Search</h2>
+        <h1 class="font-patua">Cemetery Grave Search</h1>
         <nav>
             <ul class="header-nav font-lato">
                 <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
@@ -19,6 +23,7 @@
     </header>
 
     <main>
+
         <h2 class="welcome font-patua">The Burials of GreenLawn</h2>
         <section class="search font-lato" id="cemetery-section-background-image">
             <article class="search-card font-lato">
@@ -31,8 +36,8 @@
         </section>
         <section class="cards">
             <article class="card font-lato hover-grow" id="cemetery-section-background-image" th:each="graveSite: ${graveSites}">
-                <img class="modal-image" th:attr="src=@{graveSite.tombstoneImageUrl}" th:alt="${graveSite.name}" width="250px" height="125px">
-                <h3><a th:href="@{/graveSite(id=${graveSite.id})}" th:text="${graveSite.name}"></a></h3>
+                <img class="modal-image" th:src="${graveSite.tombstoneImage}" th:alt="${graveSite.name}" width="250px" height="125px">
+                <h4><a th:href="@{/graveSite(id=${graveSite.id})}" th:text="${graveSite.name}"></a></h4>
                 <p>[(${graveSite.dateOfBirth})] - [(${graveSite.dateOfDeath})]</p>
                 <p th:text="${graveSite.status}"></p>
             </article>
@@ -42,14 +47,13 @@
                 <div id="caption"></div>
             </div>
         </section>
+
     </main>
 
     <footer>
         <small class="font-lato">&copy 2021</small>
     </footer>
 
-
-
-
 </body>
+<script src="./js/modal.js"></script>
 </html>
