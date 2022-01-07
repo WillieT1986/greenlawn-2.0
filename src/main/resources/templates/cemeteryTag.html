@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>[(${cemeteryTag.cemeteryTagName})]</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link rel="stylesheet" type="text/css" href="./css/cemeteryTag.css" />
 </head>
@@ -25,11 +26,18 @@
         <h2 class="welcome font-patua">Gravesite's Listed Under [(${cemeteryTag.cemeteryTagName})]</h2>
         <section class="cards">
             <article class="card font-lato hover-grow" id="tag-background-image" th:each="cemeteryTag: ${cemeteryTag.graveSites}">
-                <img th:src="${cemeteryTag.tombstoneImage}" width="250px" height="125px">
+                <img class="modal-image" th:src="${cemeteryTag.tombstoneImage}" width="250px" height="125px">
                 <h3><a th:href="@{/graveSite(id=${cemeteryTag.id})}" th:text="${cemeteryTag.name}"></a></h3>
                 <p>[(${cemeteryTag.dateOfBirth})] - [(${cemeteryTag.dateOfDeath})]</p>
                 <p th:text="${cemeteryTag.status}"></p>
             </article>
+
+            <div id="myModal" class="modal">
+                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+
         </section>
     </main>
 
@@ -39,4 +47,5 @@
 
 
 </body>
+<script src="./js/modal.js"></script>
 </html>

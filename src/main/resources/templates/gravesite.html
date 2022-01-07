@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <title>[(${graveSite.name})]</title>
+  <meta charset="UTF-8">
+  <title>[(${graveSite.name})]</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
   <link rel="stylesheet" type="text/css" href="./css/gravesite.css" />
 </head>
@@ -46,13 +47,14 @@
           <p th:each="cemeteryTag: ${graveSite.cemeteryTags}"><a th:href="@{/cemeteryTag(id=${cemeteryTag.id})}" th:text="${cemeteryTag.cemeteryTagName}"></a></p>
         </div>
       </article>
+
       <div id="myModal" class="modal">
         <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
         <img class="modal-content" id="img01">
         <div id="caption"></div>
       </div>
-    </section>
 
+    </section>
     <section class="obituary font-lato" id="gravesite-obituary-background-image">
       <article class="obituary-article">
         <h3>Obituary</h3>
@@ -66,6 +68,6 @@
     <small class="font-lato">&copy 2021</small>
   </footer>
 
-
 </body>
+<script src="./js/modal.js"></script>
 </html>

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Gravesites</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
     <link rel="stylesheet" type="text/css" href="./css/gravesites.css" />
 </head>
 
 <body class="container">
 
-<!-- Header -->
     <header>
         <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
         <h1 class="font-patua">Cemetery Grave Search</h1>
@@ -24,44 +24,28 @@
 
     <main>
 
-<!-- Welcome -->
         <h2 class="welcome font-patua">The Burials of GreenLawn</h2>
-
-<!-- Search -->
         <section class="search font-lato" id="cemetery-section-background-image">
-
-<!-- Search Card -->
             <article class="search-card font-lato">
                 <h3>This is where you can search for an individual by either entering a Letter or a Name.</h3>
             </article>
-
             <form class="search-card font-lato" id=f1 name="f1" action="" onSubmit="if(this.t1.value!=null && this.t1.value!='') findString(this.t1.value);return false">
                 <input type="text" id=t1 name=t1 value="" size=20>
                 <input type="submit" name=b1 value="Search">
             </form>
-
         </section>
-
-<!-- Cards -->
         <section class="cards">
-
-<!-- Card -->
             <article class="card font-lato hover-grow" id="cemetery-section-background-image" th:each="graveSite: ${graveSites}">
-
-<!-- Modal Image -->
                 <img class="modal-image" th:src="${graveSite.tombstoneImage}" th:alt="${graveSite.name}" width="250px" height="125px">
                 <h4><a th:href="@{/graveSite(id=${graveSite.id})}" th:text="${graveSite.name}"></a></h4>
                 <p>[(${graveSite.dateOfBirth})] - [(${graveSite.dateOfDeath})]</p>
                 <p th:text="${graveSite.status}"></p>
             </article>
-
-<!-- My Modal & Modal -->
             <div id="myModal" class="modal">
                 <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
                 <img class="modal-content" id="img01">
                 <div id="caption"></div>
             </div>
-
         </section>
 
     </main>
@@ -70,6 +54,6 @@
         <small class="font-lato">&copy 2021</small>
     </footer>
 
-
 </body>
+<script src="./js/modal.js"></script>
 </html>
