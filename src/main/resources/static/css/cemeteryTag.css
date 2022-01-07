@@ -1,16 +1,10 @@
-/*
-	The commented out sections is used to help map out the cards.
-*/
-
-h2 {
-    color: rgb(153, 112, 0);
-}
 
 .welcome {
     display: flex;
     justify-content: center;
     margin: 1rem;
     color: rgb(153, 112, 0);
+    font-size: 30px;
 }
 
 .cards {
@@ -20,9 +14,6 @@ h2 {
     margin: auto;
     width: 50%;
     margin-bottom: 1rem;
-    /*	border-radius: 1rem;
-        border: 0.125rem solid black;
-        background-color: lightgreen;*/
 }
 
 .card {
@@ -36,6 +27,7 @@ h2 {
     border-radius: .5rem;
     border: 0.125rem solid black;
     background-color: snow;
+    font-family: "Calibri";
 }
 
 .card a {
