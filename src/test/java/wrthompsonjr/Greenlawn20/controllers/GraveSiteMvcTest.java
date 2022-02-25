@@ -51,8 +51,8 @@ public class GraveSiteMvcTest {
     @Test
     public void shouldGetAnIndividualGraveSite() throws Exception {
         when(graveSiteRepo.getById(18L))
-                .thenReturn(new GraveSite("", "","", "Joe", "", "",
-                        "", "", "", "", "",  null, "", "", ""));
+                .thenReturn(new GraveSite("", "", "", "Joe", "", "",
+                        "", "", "", "", "", null, "", "", ""));
         mvc.perform(get("/gravesites/18")).andExpect(status().isOk());
     }
 
@@ -62,13 +62,13 @@ public class GraveSiteMvcTest {
     }
 
     @Test
-    public void shouldGetAnIndividualCemeterySection() throws Exception{
+    public void shouldGetAnIndividualCemeterySection() throws Exception {
         when(cemeterySectionRepo.getById(23L)).thenReturn(new CemeterySection("23B"));
         mvc.perform(get("/cemeterySection/23")).andExpect(status().isOk());
     }
 
     @Test
-    public void shouldNotFindCemeterySectionId()throws Exception {
+    public void shouldNotFindCemeterySectionId() throws Exception {
         mvc.perform(get("/cemeterySection/560")).andExpect(status().isNotFound());
     }
 

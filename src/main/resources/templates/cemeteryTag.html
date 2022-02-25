@@ -1,51 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <title>[(${cemeteryTag.cemeteryTagName})]</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
-    <link rel="stylesheet" type="text/css" href="./css/cemeteryTag.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/cemeteryTag.css"/>
 </head>
-
 <body class="container">
+<header>
+    <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
+    <h1 class="font-patua">Cemetery Interactive Grave Search</h1>
+    <nav>
+        <ul class="header-nav font-lato">
+            <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
+            <li><a href="http://localhost:8080/cemeteryTags">Tags</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2 class="welcome font-patua">Gravesite's Listed Under [(${cemeteryTag.cemeteryTagName})]</h2>
+    <section class="cards">
+        <article class="card font-lato hover-grow" id="tag-background-image"
+                 th:each="cemeteryTag: ${cemeteryTag.graveSites}">
+            <img class="modal-image" th:src="${cemeteryTag.tombstoneImage}" width="250px" height="125px">
+            <h3><a th:href="@{/graveSite(id=${cemeteryTag.id})}" th:text="${cemeteryTag.name}"></a></h3>
+            <p>[(${cemeteryTag.dateOfBirth})] - [(${cemeteryTag.dateOfDeath})]</p>
+            <p th:text="${cemeteryTag.status}"></p>
+        </article>
+        <div id="myModal" class="modal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
 
-    <header>
-        <img width="500px" height="175px" class="header-img" src="./images/main/arch.jpg">
-        <h1 class="font-patua">Cemetery Interactive Grave Search</h1>
-        <nav>
-            <ul class="header-nav font-lato">
-                <li><a href="http://localhost:8080/cemeterySections">Home</a></li>
-                <li><a href="http://localhost:8080/cemeteryTags">Tags</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <h2 class="welcome font-patua">Gravesite's Listed Under [(${cemeteryTag.cemeteryTagName})]</h2>
-        <section class="cards">
-            <article class="card font-lato hover-grow" id="tag-background-image" th:each="cemeteryTag: ${cemeteryTag.graveSites}">
-                <img class="modal-image" th:src="${cemeteryTag.tombstoneImage}" width="250px" height="125px">
-                <h3><a th:href="@{/graveSite(id=${cemeteryTag.id})}" th:text="${cemeteryTag.name}"></a></h3>
-                <p>[(${cemeteryTag.dateOfBirth})] - [(${cemeteryTag.dateOfDeath})]</p>
-                <p th:text="${cemeteryTag.status}"></p>
-            </article>
-
-            <div id="myModal" class="modal">
-                <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-                <img class="modal-content" id="img01">
-                <div id="caption"></div>
-            </div>
-
-        </section>
-    </main>
-
-    <footer>
-        <small class="font-lato">&copy 2021</small>
-    </footer>
-
-
+    </section>
+</main>
+<footer>
+    <small class="font-lato">&copy 2021</small>
+</footer>
 </body>
 <script src="./js/modal.js"></script>
 </html>

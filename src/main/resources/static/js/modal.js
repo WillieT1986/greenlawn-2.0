@@ -3,7 +3,7 @@ const modal = document.getElementById('myModal');
 const img = $('.modal-image');
 const modalImg = $("#img01");
 const captionText = document.getElementById("caption");
-$('.modal-image').click(function(){
+$('.modal-image').click(function () {
     modal.style.display = "block";
     const newSrc = this.src;
     modalImg.attr('src', newSrc);

@@ -117,7 +117,7 @@ public class JpaMappingTest {
         long graveSiteId = graveSite.getId();
 
         graveSite = graveSiteRepo.getById(graveSiteId);
-        assertThat(graveSite.getCemeteryTags(), containsInAnyOrder(veteran,electedOfficial));
+        assertThat(graveSite.getCemeteryTags(), containsInAnyOrder(veteran, electedOfficial));
     }
 
     @Test

@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 public class CemeterySectionController {
 
     @Resource
-    private CemeterySectionRepository  cemeterySectionRepo;
+    private CemeterySectionRepository cemeterySectionRepo;
 
     @RequestMapping(value = "cemeterySection")
     public String findOneCemeterySection(@RequestParam Long id, Model model) {
