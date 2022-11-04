@@ -57,19 +57,19 @@ public class GraveSiteRestControllerTest {
     Model model;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp() throws CannotFindException {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void shouldRetrieveAnyGraveSite() throws Exception {
+    public void shouldRetrieveAnyGraveSite() throws CannotFindException {
         when(graveSiteRepo.findAll()).thenReturn(Collections.singletonList(graveSite));
         String result = underTest.findGraveSites(model);
         assertTrue(result, contains(any(GraveSite.class)) != null);
     }
 
     @Test
-    public void shouldFindAllGraveSitesFromDatabase() throws Exception {
+    public void shouldFindAllGraveSitesFromDatabase() throws CannotFindException {
         when(graveSiteRepo.findAll()).thenReturn(Collections.singletonList(graveSite));
         String result = underTest.findGraveSites(model);
         assertTrue(result, contains(graveSite) != null);
@@ -83,7 +83,7 @@ public class GraveSiteRestControllerTest {
     }
 
     @Test
-    public void shouldReturnCannotFindExceptionForGraveSiteId() throws Exception {
+    public void shouldReturnCannotFindExceptionForGraveSiteId() throws CannotFindException {
         CannotFindException thrown = assertThrows(
                 CannotFindException.class,
                 () -> {
