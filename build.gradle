@@ -9,6 +9,11 @@ group = 'wrthompsonjr'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17.0.5'
 
+jar {
+	baseName = 'Greenlawn-2.0'
+	version = '0.0.1-SNAPSHOT'
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
