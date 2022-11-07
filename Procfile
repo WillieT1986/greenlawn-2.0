@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar target/Greenlawn-2.0-0.0.1-SNAPSHOT.jar --port $PORT target/*.war
+web:    java $JAVA_OPTS -jar target/build/libs/Greenlawn-2.0-0.0.1-SNAPSHOT.jar --port $PORT target/*.war
